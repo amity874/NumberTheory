@@ -26,6 +26,7 @@ ll calcDivFact(ll n){
         ll count=0;
         while ((n/j)!=0){
             count=(count+(n/j))%mod;
+            
             j=j*Prime[i];
         }
         ans=((ans*(count+1))%mod)%mod;

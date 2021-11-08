@@ -48,58 +48,43 @@ void file_i_o()
     #endif
 }
 
-#define MAX 100000
-std::bitset<MAX> isPrime;
-std::vector<int> primes;
-
-void gen_primes() {
-    isPrime.set();
-    isPrime[0] = isPrime[1] = false;
-    for(ll i = 2; i*i <= MAX; i++) {
-        if(isPrime[i]) {
-            for(ll j = i; j*i <= MAX; j++) {
-                isPrime[j*i] = false;
+#define MAX 1000005
+std::bitset<MAX> isCube;
+std::vector<ll> Cube;
+std::unordered_map<ll,ll>mp;
+void cube_Free(ll n){
+ isCube.set();
+    for(ll div = 2; div*div*div <= n;div++) {
+        if(isCube[div]){
+            for(ll multiple = 1;div*div*div*multiple<=MAX;multiple++) {
+                isCube[div*div*div*multiple]=false;
             }
         }
     }
-    primes.pb(2);
-    for(int i = 3; i <= MAX; i+= 2) {
-        if(isPrime[i]) primes.pb(i);
-    }
-}
-
-void segmented_sieve(ll a, ll b) {
-    std::vector<bool> seg(b-a+1, true);
-    if(a == 1) a++;
-    for(int i = 0; primes[i]*primes[i] <= b; i++) {
-        ll p = primes[i];
-        ll j = (a/p)*p;
-        if(j < a) j+= p;
-        for(; j <= b; j+= p) {
-            if(j != p) {
-                seg[j-a] = false;
-            }
-        }
-    }
-    for(ll i = a; i <= b; i++) {
-        if(seg[i-a] or i == 2) {
-            std::cout<<i<<"\n";
+    ll c=1;
+    mp[1]=c;
+    for(ll i=2;i<1000000;i++){
+        if(isCube[i]){
+            mp[i]=++c;
         }
     }
 }
-
 int main(int argc, char const *argv[]) {
     clock_t begin = clock();
     file_i_o();
     // Write your code here....
-    int t;
+    ll t;
     std::cin>>t;
-    gen_primes();
+    cube_Free(1000000);
     while(t--) {
-        ll a, b;
-        std::cin>>a>>b;
-        segmented_sieve(a, b);
-        std::cout<<"\n";
+       ll n;
+       std::cin>>n;
+       if(mp.count(n)){
+           std::cout<<" t:"<<mp[n]<<"\n";
+       }
+       else{
+           std::cout<<"Not Cube Free "<<"\n";
+       }
     }
     #ifndef ONLINE_JUDGE 
       clock_t end = clock();
