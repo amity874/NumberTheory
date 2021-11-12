@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+// https://codeforces.com/problemset/problem/230/B
 #define ll long long int
 #define max 100005
 std::bitset<max>Prime;
