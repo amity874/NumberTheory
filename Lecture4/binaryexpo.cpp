@@ -7,10 +7,10 @@ ll binaryExpoRec(ll a,ll b){
     }
     ll res=binaryExpoRec(a,b/2);
     if(b%2==0){
-        return (res%mod*res%mod)%mod;
+        return ((res%mod)*(res%mod))%mod;
     }
     else{
-        return (res%mod*res%mod*a%mod)%mod;
+        return ((res%mod)*(res%mod)*(a%mod))%mod;
     }
 }
 ll binaryExpoIter(ll a,ll b){
