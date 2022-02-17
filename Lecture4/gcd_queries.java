@@ -30,7 +30,6 @@ class Codechef
 		    for(int s=n-1; s>0; s--){
 		        suffix[s] = findGCD(suffix[s+1], arr[s]);
 		    }
-		    
 		    for(int j=0; j<q; j++){
 		        st = new StringTokenizer(br.readLine());
 		        int l = Integer.parseInt(st.nextToken());

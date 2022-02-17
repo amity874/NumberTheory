@@ -35,6 +35,6 @@ int main(int argc, char const *argv[])
             result++;
         }
         std::cout<<result;
-    }
+
 return 0;
 }

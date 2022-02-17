@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
     calcFactor(n);
     if(factor.size()>=3){
         std::cout<<"Yes";
-         int ans=3;
+        int ans=3;
         for(auto it=factor.begin();it!=factor.end();it++){
             if(ans>=1){
                 std::cout<<(*it).first<<" ";

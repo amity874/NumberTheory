@@ -2,7 +2,6 @@
 #include<bits/stdc++.h>
 #define ll long long int
 #define mod             1000000007
-
 int main(int argc, char const *argv[])
 {
     ll n=100005;

@@ -26,13 +26,25 @@ ll calcDivFact(ll n){
         ll count=0;
         while ((n/j)!=0){
             count=(count+(n/j))%mod;
-            
             j=j*Prime[i];
         }
         ans=((ans*(count+1))%mod)%mod;
     }
     return ans;
 }
+// ll calcDivFact(ll n){
+//     ll count=1;
+//     for(int i=0;Prime[i]<=n;i++){
+//         ll j=Prime[i];
+//         ll ans=0;
+//         while((n/j)!=0){
+//             ans=(ans+(n/j))%mod;
+//             j=j*Prime[i];
+//         }
+//         count=((count*(count+1)%mod))%mod;
+//     }
+//     return count;
+// }
 int main(int argc, char const *argv[]){
     GeneratePrime();
     ll t;
